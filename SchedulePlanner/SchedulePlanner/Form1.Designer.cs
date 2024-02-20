@@ -31,40 +31,48 @@
             this.holidayCheckBox = new System.Windows.Forms.CheckBox();
             this.bDayCheckBox = new System.Windows.Forms.CheckBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.SchoolCheckBox = new System.Windows.Forms.CheckBox();
+            this.Calendar = new System.Windows.Forms.MonthCalendar();
             this.descriptionText = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
-            this.TimeLabel = new System.Windows.Forms.Label();
+            this.hourNum = new System.Windows.Forms.NumericUpDown();
+            this.weatherUpDown = new System.Windows.Forms.DomainUpDown();
+            this.hourLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.minuteLabel = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.minuteNum = new System.Windows.Forms.NumericUpDown();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.holidayInfo = new System.Windows.Forms.TextBox();
+            this.bDayInfo = new System.Windows.Forms.TextBox();
+            this.currentLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.showButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.plansUpDown = new System.Windows.Forms.DomainUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.hourNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minuteNum)).BeginInit();
             this.SuspendLayout();
             // 
             // holidayCheckBox
             // 
             this.holidayCheckBox.AutoSize = true;
-            this.holidayCheckBox.Location = new System.Drawing.Point(357, 59);
+            this.holidayCheckBox.Location = new System.Drawing.Point(426, 38);
             this.holidayCheckBox.Name = "holidayCheckBox";
             this.holidayCheckBox.Size = new System.Drawing.Size(76, 20);
             this.holidayCheckBox.TabIndex = 1;
             this.holidayCheckBox.Text = "Holiday";
             this.holidayCheckBox.UseVisualStyleBackColor = true;
+            this.holidayCheckBox.CheckedChanged += new System.EventHandler(this.holidayCheckBox_CheckedChanged);
             // 
             // bDayCheckBox
             // 
             this.bDayCheckBox.AutoSize = true;
-            this.bDayCheckBox.Location = new System.Drawing.Point(357, 107);
+            this.bDayCheckBox.Location = new System.Drawing.Point(426, 86);
             this.bDayCheckBox.Name = "bDayCheckBox";
             this.bDayCheckBox.Size = new System.Drawing.Size(78, 20);
             this.bDayCheckBox.TabIndex = 2;
             this.bDayCheckBox.Text = "Birthday";
             this.bDayCheckBox.UseVisualStyleBackColor = true;
+            this.bDayCheckBox.CheckedChanged += new System.EventHandler(this.bDayCheckBox_CheckedChanged);
             // 
             // splitter1
             // 
@@ -75,96 +83,171 @@
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
-            // monthCalendar1
+            // Calendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(18, 125);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 6;
-            // 
-            // SchoolCheckBox
-            // 
-            this.SchoolCheckBox.AutoSize = true;
-            this.SchoolCheckBox.Location = new System.Drawing.Point(357, 12);
-            this.SchoolCheckBox.Name = "SchoolCheckBox";
-            this.SchoolCheckBox.Size = new System.Drawing.Size(71, 20);
-            this.SchoolCheckBox.TabIndex = 7;
-            this.SchoolCheckBox.Text = "School";
-            this.SchoolCheckBox.UseVisualStyleBackColor = true;
+            this.Calendar.Location = new System.Drawing.Point(18, 125);
+            this.Calendar.Name = "Calendar";
+            this.Calendar.TabIndex = 6;
+            this.Calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Calendar_DateChanged);
             // 
             // descriptionText
             // 
-            this.descriptionText.Location = new System.Drawing.Point(381, 272);
+            this.descriptionText.Location = new System.Drawing.Point(395, 232);
             this.descriptionText.Multiline = true;
             this.descriptionText.Name = "descriptionText";
-            this.descriptionText.Size = new System.Drawing.Size(371, 141);
+            this.descriptionText.Size = new System.Drawing.Size(200, 141);
             this.descriptionText.TabIndex = 8;
+            this.descriptionText.Visible = false;
             // 
-            // numericUpDown1
+            // hourNum
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(604, 48);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 9;
+            this.hourNum.Location = new System.Drawing.Point(643, 251);
+            this.hourNum.Name = "hourNum";
+            this.hourNum.Size = new System.Drawing.Size(120, 22);
+            this.hourNum.TabIndex = 9;
+            this.hourNum.Visible = false;
             // 
-            // domainUpDown1
+            // weatherUpDown
             // 
-            this.domainUpDown1.Location = new System.Drawing.Point(582, 169);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.domainUpDown1.TabIndex = 10;
-            this.domainUpDown1.Text = "domainUpDown1";
+            this.weatherUpDown.Items.Add("Cloudy");
+            this.weatherUpDown.Items.Add("Rainy");
+            this.weatherUpDown.Items.Add("Snowy");
+            this.weatherUpDown.Items.Add("Stormy");
+            this.weatherUpDown.Items.Add("Sunny");
+            this.weatherUpDown.Location = new System.Drawing.Point(593, 60);
+            this.weatherUpDown.Name = "weatherUpDown";
+            this.weatherUpDown.Size = new System.Drawing.Size(120, 22);
+            this.weatherUpDown.TabIndex = 10;
+            this.weatherUpDown.Text = "Cloudy";
             // 
-            // TimeLabel
+            // hourLabel
             // 
-            this.TimeLabel.AutoSize = true;
-            this.TimeLabel.Location = new System.Drawing.Point(601, 29);
-            this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(36, 16);
-            this.TimeLabel.TabIndex = 11;
-            this.TimeLabel.Text = "Hour";
+            this.hourLabel.AutoSize = true;
+            this.hourLabel.Location = new System.Drawing.Point(640, 232);
+            this.hourLabel.Name = "hourLabel";
+            this.hourLabel.Size = new System.Drawing.Size(36, 16);
+            this.hourLabel.TabIndex = 11;
+            this.hourLabel.Text = "Hour";
+            this.hourLabel.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(579, 150);
+            this.label2.Location = new System.Drawing.Point(590, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 16);
+            this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Morning Plans";
+            this.label2.Text = "Weather";
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(378, 253);
+            this.descriptionLabel.Location = new System.Drawing.Point(392, 213);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(126, 16);
             this.descriptionLabel.TabIndex = 13;
             this.descriptionLabel.Text = "Description of Plans";
+            this.descriptionLabel.Visible = false;
             // 
             // minuteLabel
             // 
             this.minuteLabel.AutoSize = true;
-            this.minuteLabel.Location = new System.Drawing.Point(601, 73);
+            this.minuteLabel.Location = new System.Drawing.Point(640, 276);
             this.minuteLabel.Name = "minuteLabel";
             this.minuteLabel.Size = new System.Drawing.Size(46, 16);
             this.minuteLabel.TabIndex = 15;
             this.minuteLabel.Text = "Minute";
+            this.minuteLabel.Visible = false;
             // 
-            // numericUpDown2
+            // minuteNum
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(604, 92);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown2.TabIndex = 14;
+            this.minuteNum.Location = new System.Drawing.Point(643, 295);
+            this.minuteNum.Name = "minuteNum";
+            this.minuteNum.Size = new System.Drawing.Size(120, 22);
+            this.minuteNum.TabIndex = 14;
+            this.minuteNum.Visible = false;
             // 
-            // label1
+            // timeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(565, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "EventTime";
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(604, 212);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(89, 16);
+            this.timeLabel.TabIndex = 16;
+            this.timeLabel.Text = "Time of Event";
+            this.timeLabel.Visible = false;
+            // 
+            // holidayInfo
+            // 
+            this.holidayInfo.Location = new System.Drawing.Point(426, 58);
+            this.holidayInfo.Name = "holidayInfo";
+            this.holidayInfo.Size = new System.Drawing.Size(100, 22);
+            this.holidayInfo.TabIndex = 17;
+            this.holidayInfo.Text = "Which Holiday?";
+            this.holidayInfo.Visible = false;
+            // 
+            // bDayInfo
+            // 
+            this.bDayInfo.Location = new System.Drawing.Point(426, 112);
+            this.bDayInfo.Name = "bDayInfo";
+            this.bDayInfo.Size = new System.Drawing.Size(100, 22);
+            this.bDayInfo.TabIndex = 18;
+            this.bDayInfo.Text = "Who\'s Birthday?";
+            this.bDayInfo.Visible = false;
+            // 
+            // currentLabel
+            // 
+            this.currentLabel.AutoSize = true;
+            this.currentLabel.Location = new System.Drawing.Point(707, 9);
+            this.currentLabel.Name = "currentLabel";
+            this.currentLabel.Size = new System.Drawing.Size(81, 16);
+            this.currentLabel.TabIndex = 19;
+            this.currentLabel.Text = "currentLabel";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(50, 373);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 20;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(131, 373);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(75, 23);
+            this.showButton.TabIndex = 21;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(593, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 16);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Plans";
+            // 
+            // plansUpDown
+            // 
+            this.plansUpDown.Items.Add("School");
+            this.plansUpDown.Items.Add("Work");
+            this.plansUpDown.Items.Add("Exercise");
+            this.plansUpDown.Items.Add("Relax");
+            this.plansUpDown.Items.Add("Doctor");
+            this.plansUpDown.Items.Add("Dentist");
+            this.plansUpDown.Items.Add("Other");
+            this.plansUpDown.Location = new System.Drawing.Point(596, 109);
+            this.plansUpDown.Name = "plansUpDown";
+            this.plansUpDown.Size = new System.Drawing.Size(120, 22);
+            this.plansUpDown.TabIndex = 23;
+            this.plansUpDown.Text = "School";
+            this.plansUpDown.SelectedItemChanged += new System.EventHandler(this.plansUpDown_SelectedItemChanged);
             // 
             // Form1
             // 
@@ -172,25 +255,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.plansUpDown);
+            this.Controls.Add(this.showButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.currentLabel);
+            this.Controls.Add(this.bDayInfo);
+            this.Controls.Add(this.holidayInfo);
+            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.minuteLabel);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.minuteNum);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.TimeLabel);
-            this.Controls.Add(this.domainUpDown1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.hourLabel);
+            this.Controls.Add(this.weatherUpDown);
+            this.Controls.Add(this.hourNum);
             this.Controls.Add(this.descriptionText);
-            this.Controls.Add(this.SchoolCheckBox);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.Calendar);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.bDayCheckBox);
             this.Controls.Add(this.holidayCheckBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hourNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minuteNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,17 +289,23 @@
         private System.Windows.Forms.CheckBox holidayCheckBox;
         private System.Windows.Forms.CheckBox bDayCheckBox;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.CheckBox SchoolCheckBox;
+        private System.Windows.Forms.MonthCalendar Calendar;
         private System.Windows.Forms.TextBox descriptionText;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
-        private System.Windows.Forms.Label TimeLabel;
+        private System.Windows.Forms.NumericUpDown hourNum;
+        private System.Windows.Forms.DomainUpDown weatherUpDown;
+        private System.Windows.Forms.Label hourLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label minuteLabel;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown minuteNum;
+        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.TextBox holidayInfo;
+        private System.Windows.Forms.TextBox bDayInfo;
+        private System.Windows.Forms.Label currentLabel;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button showButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DomainUpDown plansUpDown;
     }
 }
 
