@@ -48,6 +48,8 @@
             this.showButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.plansUpDown = new System.Windows.Forms.DomainUpDown();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.hourNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minuteNum)).BeginInit();
             this.SuspendLayout();
@@ -198,15 +200,16 @@
             // currentLabel
             // 
             this.currentLabel.AutoSize = true;
-            this.currentLabel.Location = new System.Drawing.Point(707, 9);
+            this.currentLabel.Location = new System.Drawing.Point(567, 425);
             this.currentLabel.Name = "currentLabel";
             this.currentLabel.Size = new System.Drawing.Size(81, 16);
             this.currentLabel.TabIndex = 19;
             this.currentLabel.Text = "currentLabel";
+            this.currentLabel.Visible = false;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(50, 373);
+            this.saveButton.Location = new System.Drawing.Point(53, 350);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 20;
@@ -216,7 +219,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(131, 373);
+            this.showButton.Location = new System.Drawing.Point(134, 350);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 21;
@@ -249,12 +252,33 @@
             this.plansUpDown.Text = "School";
             this.plansUpDown.SelectedItemChanged += new System.EventHandler(this.plansUpDown_SelectedItemChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(461, 428);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.Visible = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(685, 393);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.TabIndex = 27;
+            this.listBox1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.plansUpDown);
             this.Controls.Add(this.showButton);
@@ -306,6 +330,8 @@
         private System.Windows.Forms.Button showButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DomainUpDown plansUpDown;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
