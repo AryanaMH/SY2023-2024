@@ -1,4 +1,6 @@
-﻿using System;
+﻿//NOTHING WORKS
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +34,7 @@ namespace SchedulePlanner
     public partial class Form1 : Form
     {
         NameValueCollection DaysCollection = new NameValueCollection();
-        
+        /*
         NameValueCollection WeatherCollection = new NameValueCollection();
         NameValueCollection PlanCollection = new NameValueCollection();
         NameValueCollection HourCollection = new NameValueCollection();
@@ -43,7 +45,7 @@ namespace SchedulePlanner
         NameValueCollection whosBDayCollection = new NameValueCollection();
         NameValueCollection DescriptionCollection = new NameValueCollection();
         
-        /*
+        
          *private Dictionary<DateTime, DayEvent> dateCollection = new Dictionary<dateTime,DayEvent>();
          *private List<DateTime> selectedDates;
          */
@@ -94,7 +96,7 @@ namespace SchedulePlanner
         private void saveButton_Click(object sender, EventArgs e)
         {
             Save();
-            /*
+            
             DaysCollection.Add(selected.ToShortDateString(), weatherUpDown.Text);
             DaysCollection.Add(selected.ToShortDateString(), plansUpDown.Text);
             DaysCollection.Add(selected.ToShortDateString(), hourNum.Text);
@@ -106,7 +108,7 @@ namespace SchedulePlanner
             DaysCollection.Add(selected.ToShortDateString(), descriptionText.Text);
             ClearObjects();
             //ClearCollections();
-            */
+            /*
             WeatherCollection.Add(selected.ToShortDateString(), weatherUpDown.Text);
             PlanCollection.Add(selected.ToShortDateString(), plansUpDown.Text);
             HourCollection.Add(selected.ToShortDateString(), hourNum.Text);
@@ -117,11 +119,16 @@ namespace SchedulePlanner
             whosBDayCollection.Add(selected.ToShortDateString(), bDayInfo.Text);
             DescriptionCollection.Add(selected.ToShortDateString(), descriptionText.Text);
             ClearObjects();
-            
+            */
         }
         private void showButton_Click(object sender, EventArgs e)
         {
             //ShowDay(days[current]);
+            foreach (var item in DaysCollection)
+            {
+                listBox1.Items.Add(item);
+
+            }
         }
         private void holidayCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -166,7 +173,7 @@ namespace SchedulePlanner
 
         private void ClearCollections()
         {
-            
+        /*  
             WeatherCollection.Clear();
             PlanCollection.Clear();
             HourCollection.Clear();
@@ -176,7 +183,7 @@ namespace SchedulePlanner
             whichHolidayCollection.Clear();
             whosBDayCollection.Clear();
             DescriptionCollection.Clear();
-            
+         */   
         }
 
         //Save
@@ -263,7 +270,7 @@ namespace SchedulePlanner
             //DayEvent d;
             //ShowDay(DaysCollection[selected]);
             //Day d;
-            
+            /*
             weatherUpDown.Text = WeatherCollection[e.Start.ToShortDateString()];
             plansUpDown.Text = PlanCollection[e.Start.ToShortDateString()];
             hourNum.Text = HourCollection[e.Start.ToShortDateString()];
@@ -290,6 +297,7 @@ namespace SchedulePlanner
             
             //textBox1.Text = dateCollection[e.Start.ToShortDateString()];
             selected = e.Start;
+            */
             
         }
         /*
